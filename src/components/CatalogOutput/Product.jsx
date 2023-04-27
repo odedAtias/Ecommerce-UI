@@ -30,7 +30,7 @@ const Product = ({ product, onCartUpdate }) => {
 				</button>
 				{/* Price */}
 				<div
-					className='btn btn-dark btn-sm text-white'
+					className='bg-dark p-1 d px-2 text-white'
 					style={{
 						position: 'absolute',
 						top: '0',

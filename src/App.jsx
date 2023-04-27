@@ -35,6 +35,9 @@ const App = () => {
 				} else {
 					updatedCart[index].quantity -= 1;
 				}
+			} else if (command === 'clean') {
+				console.log('here');
+				updatedCart.splice(index, 1);
 			}
 			setCart(updatedCart);
 		} else {
