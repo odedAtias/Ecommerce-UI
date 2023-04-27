@@ -54,7 +54,7 @@ const Cart = ({ cart, onCartUpdate }) => {
 											</button>
 										</div>
 									</td>
-									<td>{item.price * item.quantity} $</td>
+									<td>{Number(item.price * item.quantity).toFixed(2)} $</td>
 									<td>
 										<AiFillDelete
 											size={25}

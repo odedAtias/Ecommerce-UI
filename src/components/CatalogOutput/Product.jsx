@@ -34,7 +34,7 @@ const Product = ({ product, onCartUpdate }) => {
 						left: '0',
 						zIndex: '1',
 					}}>
-					{price} $
+					{price.toFixed(2)} $
 				</div>
 				{/* Total remaining */}
 				<div
