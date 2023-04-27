@@ -69,7 +69,7 @@ const Cart = ({ cart, onCartUpdate }) => {
 					<CartSummary cart={cart} />
 				</>
 			) : (
-				<h4 className='text-center'>No items yet</h4>
+				<h4 className='text-center fs-1 lead'>Your cart is currently empty</h4>
 			)}
 		</div>
 	);
