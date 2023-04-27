@@ -21,7 +21,6 @@ const App = () => {
 
 	// Catalog handlers
 	const handleCartUpdate = (item, command) => {
-		console.log('here');
 		const index = cart.findIndex(cartItem => cartItem.id === item.id);
 		// Item already exists in the cart
 		if (index !== -1) {
