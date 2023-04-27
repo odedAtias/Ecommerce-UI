@@ -16,13 +16,13 @@ const Catalog = ({ products, onCartUpdate, setProducts }) => {
 		fetchProducts();
 	}, [products]);
 
-	if (!products) {
-		return <h2>Loading ...</h2>;
-	}
-
 	return (
 		<div className='bg-light'>
-			<ProductsList products={products} onCartUpdate={onCartUpdate} />
+			{products?.length ? (
+				<ProductsList products={products} onCartUpdate={onCartUpdate} />
+			) : (
+				<h2 className='text-center'>Loading ...</h2>
+			)}
 		</div>
 	);
 };
