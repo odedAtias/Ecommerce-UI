@@ -15,10 +15,7 @@ const Product = ({ product, onCartUpdate }) => {
 				}}>
 				{/* Add to cart button */}
 				<button
-					onClick={() => {
-						onCartUpdate(product, 'add');
-						alert(`The product ${title} added to your cart !`);
-					}}
+					onClick={() => onCartUpdate(product, 'add')}
 					className='btn btn-info btn-sm text-white'
 					style={{
 						position: 'absolute',

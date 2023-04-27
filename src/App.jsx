@@ -4,11 +4,13 @@ import { useState, useEffect } from 'react';
 // React Router Dom imports
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// StyleSheet imports
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 // Third-party libraries
 import Cookies from 'js-cookie';
+import { ToastContainer, toast } from 'react-toastify';
+
+// StyleSheet imports
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Custom components imports
 import Welcome from './pages/Welcome';
@@ -49,6 +51,9 @@ const App = () => {
 			if (command === 'add') {
 				setCart([...cart, { ...item, quantity: 1 }]);
 				setCookieCart([...cart, { ...item, quantity: 1 }]);
+				toast.success('Your cart has been updated successfully!', {
+					autoClose: 2000,
+				});
 			}
 		}
 	};
@@ -83,6 +88,7 @@ const App = () => {
 					/>
 				</Routes>
 			</Router>
+			<ToastContainer />
 		</>
 	);
 };
