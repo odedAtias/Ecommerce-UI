@@ -5,7 +5,7 @@ import CartSummary from '../components/CartOutput/CartSummary';
 // Cart component
 const Cart = ({ cart, onCartUpdate }) => {
 	return (
-		<div className='container py-5'>
+		<div className='container py-5 mt-5 table-responsive'>
 			{cart.length > 0 ? (
 				<>
 					<table className='table table-hover'>
@@ -39,22 +39,22 @@ const Cart = ({ cart, onCartUpdate }) => {
 											aria-label='Quantity'>
 											<button
 												type='button'
-												className='btn btn-outline-secondary'
+												className='btn btn-outline-secondary btn-sm'
 												onClick={() => onCartUpdate(item, 'remove')}>
 												-
 											</button>
-											<span className='btn btn-outline-secondary'>
+											<span className='btn btn-outline-secondary btn-sm'>
 												{item.quantity}
 											</span>
 											<button
 												type='button'
-												className='btn btn-outline-secondary'
+												className='btn btn-outline-secondary btn-sm'
 												onClick={() => onCartUpdate(item, 'add')}>
 												+
 											</button>
 										</div>
 									</td>
-									<td>{Number(item.price * item.quantity).toFixed(2)} $</td>
+									<td>{Number(item.price * item.quantity).toFixed(2)}$</td>
 									<td>
 										<AiFillDelete
 											size={25}

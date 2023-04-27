@@ -6,7 +6,7 @@ import { AiOutlineShoppingCart, AiFillShop } from 'react-icons/ai';
 
 const Navbar = () => {
 	return (
-		<nav className='bg-primary py-3'>
+		<nav className='bg-primary py-3 fixed-top'>
 			<div className='container d-flex justify-content-between align-items-center'>
 				{/* Logo */}
 				<div>

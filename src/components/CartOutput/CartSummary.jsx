@@ -16,14 +16,14 @@ const CartSummary = ({ cart }) => {
 
 	return (
 		<div className='bg-light border rounded p-3'>
-			<div className='row'>
-				<div className='col-6 col-md-4'>
+			<div className='row justify-content-start'>
+				<div className='col-4'>
 					<p className='mb-0'>Subtotal: {totalPrice} $</p>
 				</div>
-				<div className='col-6 col-md-4'>
+				<div className='col-4'>
 					<p className='mb-0'>Shipping: {shipping} $</p>
 				</div>
-				<div className='col-12 col-md-4'>
+				<div className='col-4'>
 					<p className='mb-0'>
 						Total: {Number(totalPrice + shipping).toFixed(2)} $
 					</p>

@@ -17,6 +17,7 @@ import Welcome from './pages/Welcome';
 import Catalog from './pages/Catalog';
 import Cart from './pages/Cart';
 import Navbar from './components/UI/Navbar';
+import Footer from './components/UI/Footer';
 
 // App Component
 const App = () => {
@@ -36,6 +37,9 @@ const App = () => {
 			const updatedCart = [...cart];
 			if (command === 'add') {
 				updatedCart[index].quantity += 1;
+				toast.success(`${item.title} added to your cart!`, {
+					autoClose: 1000,
+				});
 			} else if (command === 'remove') {
 				if (updatedCart[index].quantity === 1) {
 					updatedCart.splice(index, 1);
@@ -51,8 +55,8 @@ const App = () => {
 			if (command === 'add') {
 				setCart([...cart, { ...item, quantity: 1 }]);
 				setCookieCart([...cart, { ...item, quantity: 1 }]);
-				toast.success('Your cart has been updated successfully!', {
-					autoClose: 2000,
+				toast.success(`${item.title} added to your cart!`, {
+					autoClose: 1000,
 				});
 			}
 		}
@@ -88,7 +92,8 @@ const App = () => {
 					/>
 				</Routes>
 			</Router>
-			<ToastContainer />
+			<Footer />
+			<ToastContainer position='top-left' toastStyle={{ marginTop: '50px' }} />
 		</>
 	);
 };
