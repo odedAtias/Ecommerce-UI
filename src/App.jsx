@@ -16,7 +16,7 @@ import Navbar from './components/UI/Navbar';
 // App Component
 const App = () => {
 	// Catalog State initialize
-	const [products, setProducts] = useState(null);
+	const [products, setProducts] = useState([]);
 	const [cart, setCart] = useState([]);
 
 	// Catalog handlers
@@ -48,6 +48,7 @@ const App = () => {
 			}
 		}
 	};
+
 	return (
 		<>
 			<Router>
