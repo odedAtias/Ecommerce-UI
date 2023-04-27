@@ -1,11 +1,14 @@
 // Hooks import
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // React Router Dom imports
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // StyleSheet imports
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+// Third-party libraries
+import Cookies from 'js-cookie';
 
 // Custom components imports
 import Welcome from './pages/Welcome';
@@ -15,39 +18,48 @@ import Navbar from './components/UI/Navbar';
 
 // App Component
 const App = () => {
+	// Cookies set function - i set the expiration after 7 days
+	const setCookieCart = cart => {
+		Cookies.set('cart', JSON.stringify(cart), { expires: 7 });
+	};
+
 	// Catalog State initialize
 	const [products, setProducts] = useState([]);
 	const [cart, setCart] = useState([]);
 
-	// Catalog handlers
+	// App Handlers
 	const handleCartUpdate = (item, command) => {
 		const index = cart.findIndex(cartItem => cartItem.id === item.id);
-		// Item already exists in the cart
 		if (index !== -1) {
 			const updatedCart = [...cart];
 			if (command === 'add') {
-				// If the command is 'add', increment the quantity of the existing item
 				updatedCart[index].quantity += 1;
 			} else if (command === 'remove') {
-				// If the command is 'remove', decrement the quantity of the existing item or remove it entirely if the quantity is 1
 				if (updatedCart[index].quantity === 1) {
 					updatedCart.splice(index, 1);
 				} else {
 					updatedCart[index].quantity -= 1;
 				}
 			} else if (command === 'clean') {
-				console.log('here');
 				updatedCart.splice(index, 1);
 			}
 			setCart(updatedCart);
+			setCookieCart(updatedCart);
 		} else {
-			// Item doesn't exist in the cart
 			if (command === 'add') {
-				// If the command is 'add', add a new item to the cart with quantity 1
 				setCart([...cart, { ...item, quantity: 1 }]);
+				setCookieCart([...cart, { ...item, quantity: 1 }]);
 			}
 		}
 	};
+
+	//  loading the cart from cookies when the component mounts:
+	useEffect(() => {
+		const cartCookie = Cookies.get('cart');
+		if (cartCookie) {
+			setCart(JSON.parse(cartCookie));
+		}
+	}, []);
 
 	return (
 		<>

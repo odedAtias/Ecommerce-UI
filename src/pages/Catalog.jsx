@@ -21,7 +21,16 @@ const Catalog = ({ products, onCartUpdate, setProducts }) => {
 			{products?.length ? (
 				<ProductsList products={products} onCartUpdate={onCartUpdate} />
 			) : (
-				<h2 className='text-center'>Loading ...</h2>
+				<div
+					className='d-flex align-items-center justify-content-center bg-white'
+					style={{ height: '300px' }}>
+					<div
+						className='spinner-border'
+						role='status'
+						style={{ width: '3rem', height: '3rem' }}>
+						<span className='visually-hidden'>Loading...</span>
+					</div>
+				</div>
 			)}
 		</div>
 	);
